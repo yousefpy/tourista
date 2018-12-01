@@ -3,15 +3,24 @@
 {% block title %}Detail{% endblock title %} 
 
 {% block content %}
-    <p>{{destination.name}}</p>
-    <p>{{destination.description}}</p>
-    <p>{{destination.activities}}</p>
-    <p><img src="{{destination.pretty_picture.url}}"></p>
-    <p>{{destination.optimal_visiting_season}}</p>
-    <a href="{% url 'destination-update' destination.id %}">
-        <button>Update</button>
+
+<div class="card">
+    <img class="card-img-top rounded_corners" src="{{destination.pretty_picture.url}}" alt="Card image cap">
+    <div class="card-body">
+    <h5 class="card-title text-uppercase">{{destination.name}}</h5>
+    <p class="card-text">{{destination.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item bg-info text-white">Activites: {{destination.activities}}</li>
+        <li class="list-group-item bg-info text-white">Best Season: {{destination.optimal_visiting_season}}</li>
+    </ul>
+    <div class="card-body text-center">
+    <a href="{% url 'destination-update' destination.id %}"><button type="button" class="btn btn-outline-info">Update</button>
     </a>
-    <a href="{% url 'destination-delete' destination.id %}">
-        <button>Delete</button>
+    <a href="{% url 'destination-delete' destination.id %}"><button type="button" class="btn btn-danger">Delete</button>
     </a>
+    </div>
+</div>
+
 {% endblock content %}
+
