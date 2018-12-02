@@ -4,3 +4,6 @@
 .rounded_corners{
     border-radius: 0px 60px 60px 60px;
 }
+.image_margin{
+	border-radius: 0px 0px 5px 5px;
+}
